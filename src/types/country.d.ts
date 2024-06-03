@@ -5,6 +5,10 @@ export interface Trip {
   description?: string;
 }
 
+export interface TripWithCountry extends Trip {
+  country: string
+}
+
 export interface Country {
   name: string;
   daysPerWindow: number;
