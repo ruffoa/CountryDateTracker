@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/country-date-tracker/static/css/main.2846414b.css",
-    "main.js": "/country-date-tracker/static/js/main.1bfb892a.js",
-    "static/js/453.efcfd806.chunk.js": "/country-date-tracker/static/js/453.efcfd806.chunk.js",
-    "index.html": "/country-date-tracker/index.html",
-    "main.2846414b.css.map": "/country-date-tracker/static/css/main.2846414b.css.map",
-    "main.1bfb892a.js.map": "/country-date-tracker/static/js/main.1bfb892a.js.map",
-    "453.efcfd806.chunk.js.map": "/country-date-tracker/static/js/453.efcfd806.chunk.js.map"
+    "main.css": "/CountryDateTracker/static/css/main.2846414b.css",
+    "main.js": "/CountryDateTracker/static/js/main.c036db84.js",
+    "static/js/453.efcfd806.chunk.js": "/CountryDateTracker/static/js/453.efcfd806.chunk.js",
+    "index.html": "/CountryDateTracker/index.html",
+    "main.2846414b.css.map": "/CountryDateTracker/static/css/main.2846414b.css.map",
+    "main.c036db84.js.map": "/CountryDateTracker/static/js/main.c036db84.js.map",
+    "453.efcfd806.chunk.js.map": "/CountryDateTracker/static/js/453.efcfd806.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2846414b.css",
-    "static/js/main.1bfb892a.js"
+    "static/js/main.c036db84.js"
   ]
 }
