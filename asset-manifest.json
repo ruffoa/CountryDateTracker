@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/CountryDateTracker/static/css/main.2846414b.css",
-    "main.js": "/CountryDateTracker/static/js/main.c036db84.js",
+    "main.js": "/CountryDateTracker/static/js/main.0de9309d.js",
     "static/js/453.efcfd806.chunk.js": "/CountryDateTracker/static/js/453.efcfd806.chunk.js",
     "index.html": "/CountryDateTracker/index.html",
     "main.2846414b.css.map": "/CountryDateTracker/static/css/main.2846414b.css.map",
-    "main.c036db84.js.map": "/CountryDateTracker/static/js/main.c036db84.js.map",
+    "main.0de9309d.js.map": "/CountryDateTracker/static/js/main.0de9309d.js.map",
     "453.efcfd806.chunk.js.map": "/CountryDateTracker/static/js/453.efcfd806.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2846414b.css",
-    "static/js/main.c036db84.js"
+    "static/js/main.0de9309d.js"
   ]
 }
