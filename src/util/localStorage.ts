@@ -13,3 +13,17 @@ export function getLocalStorage(): LocalStorageCountries | undefined {
 export function updateLocalStorage(countries: LocalStorageCountries) {
   localStorage.setItem(key, JSON.stringify(countries))
 }
+
+const userKey = "user"
+
+export function getUser() {
+  const user = localStorage.getItem(userKey);
+  
+  if (user) {
+    return JSON.parse(user);
+  }
+}
+
+export function setUser(name: string) {
+  localStorage.setItem(userKey, JSON.stringify({ name: name }));
+}

@@ -61,7 +61,7 @@ function CountrySetup(props: CountryProps) {
             }} />
 
             <Grid container spacing={4}>
-              <Grid xs={6}>
+              <Grid sm={6} xs={12}>
                 <NumberInput
                   label="Days allowed per period"
                   placeholder="Type a number…"
@@ -69,7 +69,7 @@ function CountrySetup(props: CountryProps) {
                   onChange={(event, val) => setDatesInCountry(val)}
                 />
               </Grid>
-              <Grid xs={6}>
+              <Grid sm={6} xs={12}>
                 <NumberInput
                   label="Days per period"
                   placeholder="Type a number…"
@@ -82,17 +82,17 @@ function CountrySetup(props: CountryProps) {
             <Grid container spacing={4}>
             {props.country?.windowSize &&
             <>
-            <Grid xs={6}>
+            <Grid sm={6} xs={12}>
               <Typography>Period Start</Typography>
             </Grid>
-            <Grid xs={6}>
+            <Grid sm={6} xs={12}>
               {sub(new Date(), { days: props.country.windowSize }).toDateString()}
               </Grid>
             </>
             }
             </Grid>
 
-            {props.country.trips &&
+            {props.country?.trips &&
               <>
                 <Typography>Trips</Typography>
                 {props.country.trips.length ? <DataGrid columns={columns} rows={trips} getRowId={(row) => row.name} autosizeOnMount>

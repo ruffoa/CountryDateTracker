@@ -12,6 +12,7 @@ import CountrySetup from './components/country';
 import { getLocalStorage, updateLocalStorage } from './util/localStorage';
 import TripContainer from './components/trip';
 import { calculateDateWindow } from './util/dates';
+import WelcomeContainer from './components/welcome';
 
 interface DateRange {
   startDate: Date;
@@ -27,12 +28,16 @@ function App() {
   const [showAddTrip, setShowAddTrip] = useState(false);
   const [editCountry, setEditCountry] = useState<Country | undefined>(undefined);
   const [editTrip, setEditTrip] = useState<Trip | undefined>(undefined);
+  const [showWelcomeModal, setShowWelcomeModal] = useState<boolean>(false);
 
   useEffect(() => {
     const countries = getLocalStorage();
 
     if (countries) {
       setCountries(countries);
+    } else {
+      // First time user
+      setShowWelcomeModal(true);
     }
   }, []);
 
@@ -165,6 +170,8 @@ function App() {
           <AddRounded />
           Trip
         </Fab>
+
+        <WelcomeContainer showModal={showWelcomeModal} onClose={() => setShowWelcomeModal(false)}></WelcomeContainer>
       </div>
 
     </>
