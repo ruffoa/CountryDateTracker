@@ -29,6 +29,7 @@ function App() {
   const [editCountry, setEditCountry] = useState<Country | undefined>(undefined);
   const [editTrip, setEditTrip] = useState<Trip | undefined>(undefined);
   const [showWelcomeModal, setShowWelcomeModal] = useState<boolean>(false);
+  const [daysSpentInSelectedCountry, setDaysSpentInSelectedCountry] = useState<number | undefined>(undefined);
 
   useEffect(() => {
     const countries = getLocalStorage();
@@ -48,9 +49,8 @@ function App() {
         windowSize,
         daysPerWindow,
         name: country,
-        trips: [],
+        trips: countries[country]?.trips ?? [],
       }
-
     }
     setCountries(updatedCountries);
 
@@ -70,9 +70,9 @@ function App() {
     }
   };
 
-  const showEditCountry = (countryName: string) => {
+  const showEditCountry = (countryName: string, daysSpent: number) => {
     setEditCountry(countries[countryName]);
-
+    setDaysSpentInSelectedCountry(daysSpent);
     setShowAddCountry(true);
   }
 
@@ -86,7 +86,10 @@ function App() {
         return (
           <>
             <ListItem key={countryName}>
-              <ListItemButton onClick={() => showEditCountry(countryName)}>
+              <ListItemButton onClick={() => {
+                setShowAddCountry(false);
+                showEditCountry(countryName, daysSpent);
+              }}>
                 <ListItemText primary={countryName} secondary={`${daysSpent} / ${country.daysPerWindow} days spent`}></ListItemText>
               </ListItemButton>
             </ListItem>
@@ -98,7 +101,7 @@ function App() {
 
   const updateTrip = (trip: TripWithCountry) => {
     const trips = [...countries[trip.country].trips, trip];
-    const updatedCountry = { 
+    const updatedCountry = {
       ...countries[trip.country],
       trips,
     }
@@ -147,11 +150,26 @@ function App() {
         <Divider />
         <ListItem><ListItemText primary={"Countries"} /></ListItem>
         {renderCountries()}
+        <Grid container spacing={4} direction="row" maxWidth={'100%'}
+          sx={{
+            justifyContent: "center",
+            alignItems: "baseline",
+          }}>
+          <Grid sm={8}>
+            <Button startIcon={<AddRounded />} variant="outlined" onClick={() => {
+              setShowAddCountry(false);
+              setShowWelcomeModal(false);
+              setEditCountry(undefined);
+              setDaysSpentInSelectedCountry(undefined);
+              setShowAddCountry(true);
+            }}>Country</Button>
+          </Grid>
+        </Grid>
       </Drawer>
 
       <div className="App" style={{ width: `calc(100% - ${drawerWidth}px)`, marginLeft: `${drawerWidth + 20}px`, maxWidth: `calc(100% - ${drawerWidth}px - 50px)` }}>
         <Grid container spacing={4}>
-          {showAddCountry && <CountrySetup country={editCountry} onSave={updateCountry} onCancel={() => {
+          {showAddCountry && <CountrySetup country={editCountry} daysSpent={daysSpentInSelectedCountry} onSave={updateCountry} onCancel={() => {
             setShowAddCountry(false);
             setEditCountry(undefined);
           }} />}
@@ -161,17 +179,12 @@ function App() {
           }} countries={Object.keys(countries)} />}
         </Grid>
 
-        <Fab color="primary" variant='extended' aria-label="add" sx={fabStyle(1)} onClick={() => setShowAddCountry(!showAddCountry)}>
-          <AddRounded />
-          Country
-        </Fab>
-
-        <Fab color="primary" variant='extended' aria-label="add" sx={fabStyle(10)} onClick={() => setShowAddTrip(!showAddTrip)}>
+        <Fab color="primary" variant='extended' aria-label="add" sx={fabStyle(1)} onClick={() => setShowAddTrip(!showAddTrip)}>
           <AddRounded />
           Trip
         </Fab>
 
-        <WelcomeContainer showModal={showWelcomeModal} onClose={() => setShowWelcomeModal(false)}></WelcomeContainer>
+        {showWelcomeModal && <WelcomeContainer onClose={() => setShowWelcomeModal(false)}></WelcomeContainer>}
       </div>
 
     </>
