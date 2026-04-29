@@ -63,7 +63,7 @@ function CountrySetup(props: CountryProps) {
 
   const updateCountrySettingsComponents = (
     <Grid container spacing={4}>
-      <Grid sm={6} xs={12}>
+      <Grid size={{ sm: 6, xs: 12 }}>
         <NumberInput
           label="Days allowed per period"
           placeholder="Type a number…"
@@ -71,7 +71,7 @@ function CountrySetup(props: CountryProps) {
           onChange={(event, val) => setDatesInCountry(val)}
         />
       </Grid>
-      <Grid sm={6} xs={12}>
+      <Grid size={{ sm: 6, xs: 12 }}>
         <NumberInput
           label="Days per period"
           placeholder="Type a number…"

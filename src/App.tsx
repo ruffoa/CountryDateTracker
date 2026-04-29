@@ -147,7 +147,7 @@ function App() {
             justifyContent: "center",
             alignItems: "baseline",
           }}>
-          <Grid sm={8}>
+          <Grid size={{ sm: 8, xs: 12 }}>
             <Button startIcon={<AddRounded />} variant="outlined" onClick={() => {
               setShowAddCountry(false);
               setShowWelcomeModal(false);
