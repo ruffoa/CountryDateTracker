@@ -18,8 +18,4 @@ jobs:
         node-version: 24.x
         cache: 'npm'
     - run: npm ci
-    - name: Upload static files as artifact
-      id: deployment
-      uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
-      with:
-        path: build/
+    - run: npm t
