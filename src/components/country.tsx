@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Button, Card, CardActions, TextField, Stack, CardContent, Typography, Accordion, AccordionDetails, AccordionSummary, AccordionActions } from '@mui/material';
-import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
+import { Button, Card, CardActions, Grid2 as Grid, TextField, Stack, CardContent, Typography, Accordion, AccordionDetails, AccordionSummary, AccordionActions } from '@mui/material';
 import { DataGrid, GridColDef, GridToolbarContainer, GridToolbarDensitySelector, GridToolbarExport } from '@mui/x-data-grid';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
