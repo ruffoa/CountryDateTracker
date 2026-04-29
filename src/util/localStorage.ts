@@ -1,4 +1,4 @@
-import { Country, LocalStorageCountries } from "../types/country";
+import { LocalStorageCountries } from "../types/country";
 
 const key = "countries";
 

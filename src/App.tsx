@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-import { AppBar, Button, Card, Drawer, Divider, Fab, ListItem, ListItemText, Toolbar, Typography, ListItemButton } from '@mui/material';
+import { AppBar, Button, Drawer, Divider, Fab, ListItem, ListItemText, Toolbar, Typography, ListItemButton } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
-import { AddRounded, MapOutlined, TripOrigin } from '@mui/icons-material';
-import { add, sub, isAfter, isBefore, Duration } from "date-fns"
+import { AddRounded, MapOutlined } from '@mui/icons-material';
 
 import './App.css';
 import { Country, Trip, TripWithCountry } from './types/country';
@@ -13,12 +12,6 @@ import { getLocalStorage, updateLocalStorage } from './util/localStorage';
 import TripContainer from './components/trip';
 import { calculateDateWindow } from './util/dates';
 import WelcomeContainer from './components/welcome';
-
-interface DateRange {
-  startDate: Date;
-  endDate: Date;
-  key?: string;
-}
 
 const drawerWidth = 240;
 
@@ -81,7 +74,7 @@ function App() {
       Object.keys(countries).sort().map((countryName) => {
         const country = countries[countryName];
 
-        const daysSpent = calculateDateWindow(country.trips, country.windowSize, country.daysPerWindow);
+        const daysSpent = calculateDateWindow(country.trips, country.windowSize);
 
         return (
           <>

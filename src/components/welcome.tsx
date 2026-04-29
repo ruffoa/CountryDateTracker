@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Button, Card, CardActionArea, CardActions, TextField, Stack, CardContent, List, ListItem, ListItemButton, ListItemText, Typography, Modal, Box } from '@mui/material';
+import React from "react";
+import { Button, Card, CardActions, CardContent, Typography } from '@mui/material';
 
 export interface WelcomeProps {
   onClose: () => void;
@@ -19,8 +19,6 @@ const style = {
 };
 
 function WelcomeContainer(props: WelcomeProps) {
-  const [name, setName] = useState("");
-
   return (
     <div>
       <Card sx={style}>
@@ -30,7 +28,7 @@ function WelcomeContainer(props: WelcomeProps) {
           </Typography>
 
 
-          Click the <em>+ Country</em> button in the bottom right to add a new country
+          Click the <em>+ Country</em> button in the left navigation bar to add a new country
         </CardContent>
         <CardActions>
           <Button size="small" onClick={props.onClose}>Close</Button>

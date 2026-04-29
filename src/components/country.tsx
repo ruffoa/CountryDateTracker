@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
-import { Button, Card, CardActionArea, CardActions, TextField, Stack, CardContent, List, ListItem, ListItemButton, ListItemText, Typography, Accordion, AccordionDetails, AccordionSummary, AccordionActions } from '@mui/material';
+import { Button, Card, CardActions, TextField, Stack, CardContent, Typography, Accordion, AccordionDetails, AccordionSummary, AccordionActions } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import { DataGrid, GridColDef, GridToolbarContainer, GridToolbarDensitySelector, GridToolbarExport } from '@mui/x-data-grid';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import EditIcon from '@mui/icons-material/Edit';
 
 import NumberInput from "./numberInput";
 import { Country } from '../types/country';
@@ -23,20 +22,19 @@ function CountrySetup(props: CountryProps) {
     name: "",
     windowSize: 0,
     trips: [],
-  }
+  } as const;
 
   const [country, setCountry] = useState<string>(defaultData.name);
   const [datesInCountry, setDatesInCountry] = useState(defaultData.daysPerWindow);
   const [dateWindowSize, setDateWindowSize] = useState(defaultData.windowSize);
   const [trips, setTrips] = useState(defaultData.trips);
-  const [formErrors, setFormErrors] = useState<{ country?: string }>({});
 
   useEffect(() => {
     setCountry(props?.country?.name ?? defaultData.name);
     setDatesInCountry(props?.country?.daysPerWindow ?? 0);
     setDateWindowSize(props?.country?.windowSize ?? 0);
     setTrips(props?.country?.trips ?? []);
-  }, [props.country]);
+  }, [props.country, defaultData.name]);
 
   const columns: GridColDef[] = [
     { field: 'name', headerName: 'Name', width: 130 },
@@ -97,7 +95,7 @@ function CountrySetup(props: CountryProps) {
       <Card style={{ margin: 8, padding: 8, minHeight: 200, minWidth: 400 }}>
         <CardContent>
           <Stack spacing={4}>
-            <TextField helperText={formErrors.country} error={formErrors.country ? true : false} label="Country" variant="standard" placeholder="Country" value={country} onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+            <TextField label="Country" variant="standard" placeholder="Country" value={country} onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
               setCountry(event.target.value);
             }} />
 

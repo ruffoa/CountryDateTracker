@@ -1,8 +1,8 @@
-import { sub, add, isAfter, isBefore, differenceInCalendarDays } from "date-fns";
+import { sub, isAfter, differenceInCalendarDays } from "date-fns";
 
 import { Trip } from "../types/country";
 
-export function calculateDateWindow(trips: Array<Trip>, windowSize: number, daysPerWindow: number) {
+export function calculateDateWindow(trips: Array<Trip>, windowSize: number) {
   const windowStartDate = sub(new Date(), { days: windowSize });
 
   let daysInCountry = 0;

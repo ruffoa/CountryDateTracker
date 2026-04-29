@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { DateRangePicker } from 'react-date-range';
 
-import { Button, Card, CardActionArea, CardActions, MenuItem, TextField, Stack, CardContent, Select, SelectChangeEvent, FormHelperText, FormControl } from '@mui/material';
-import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
+import { Button, Card, CardActions, MenuItem, TextField, Stack, CardContent, Select, SelectChangeEvent, FormHelperText, FormControl } from '@mui/material';
 
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
@@ -26,7 +25,6 @@ function TripContainer(props: TripProps) {
     startDate: new Date(),
     endDate: new Date(),
   });
-  const [showDatePicker, setShowDatePicker] = useState(false);
   const [tripName, setTripName] = useState("");
   const [tripDescription, setTripDescription] = useState("");
   const [country, setCountry] = useState("");
