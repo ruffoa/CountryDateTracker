@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Button, Card, CardActions, TextField, Stack, CardContent, Typography, Accordion, AccordionDetails, AccordionSummary, AccordionActions } from '@mui/material';
-import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
+import { Button, Card, CardActions, Grid2 as Grid, TextField, Stack, CardContent, Typography, Accordion, AccordionDetails, AccordionSummary, AccordionActions } from '@mui/material';
 import { DataGrid, GridColDef, GridToolbarContainer, GridToolbarDensitySelector, GridToolbarExport } from '@mui/x-data-grid';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
@@ -64,7 +63,7 @@ function CountrySetup(props: CountryProps) {
 
   const updateCountrySettingsComponents = (
     <Grid container spacing={4}>
-      <Grid sm={6} xs={12}>
+      <Grid size={{ sm: 6, xs: 12 }}>
         <NumberInput
           label="Days allowed per period"
           placeholder="Type a number…"
@@ -72,7 +71,7 @@ function CountrySetup(props: CountryProps) {
           onChange={(event, val) => setDatesInCountry(val)}
         />
       </Grid>
-      <Grid sm={6} xs={12}>
+      <Grid size={{ sm: 6, xs: 12 }}>
         <NumberInput
           label="Days per period"
           placeholder="Type a number…"

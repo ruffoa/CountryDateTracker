@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { AppBar, Button, Drawer, Divider, Fab, ListItem, ListItemText, Toolbar, Typography, ListItemButton } from '@mui/material';
-import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
+import { AppBar, Button, Drawer, Divider, Fab, Grid2 as Grid, ListItem, ListItemText, Toolbar, Typography, ListItemButton } from '@mui/material';
 import { AddRounded, MapOutlined } from '@mui/icons-material';
 
 import './App.css';
@@ -148,7 +147,7 @@ function App() {
             justifyContent: "center",
             alignItems: "baseline",
           }}>
-          <Grid sm={8}>
+          <Grid size={{ sm: 8, xs: 12 }}>
             <Button startIcon={<AddRounded />} variant="outlined" onClick={() => {
               setShowAddCountry(false);
               setShowWelcomeModal(false);
